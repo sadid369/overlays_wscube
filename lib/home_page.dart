@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -17,8 +18,6 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ElevatedButton(
                 onPressed: () {
@@ -231,6 +230,33 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
                 child: const Text('Show Time Picker')),
+            ElevatedButton(
+                onPressed: () async {
+                  //  showCupertinoDialog(context: context, builder: (context) {
+                  //    return Cupte
+                  //  },);
+
+                  showCupertinoModalPopup(
+                    context: context,
+                    builder: (mContext) {
+                      return Container(
+                        color: Colors.white,
+                        height: 120,
+                        child: CupertinoDatePicker(
+                          initialDateTime: DateTime.now(),
+                          maximumDate: DateTime.now().add(Duration(days: 7)),
+                          minimumDate:
+                              DateTime.now().subtract(Duration(days: 7)),
+                          onDateTimeChanged: (DateTime value) {
+                            print(
+                                'Selected Date: ${value.day} / ${value.month} / ${value.year} Time: ${value.hour} : ${value.minute}');
+                          },
+                        ),
+                      );
+                    },
+                  );
+                },
+                child: const Text('Show Cup tertino Time Picker')),
           ],
         ),
       ),
