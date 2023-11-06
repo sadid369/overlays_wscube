@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:overlays_wscube/home_page.dart';
 
+// GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() {
   runApp(const MyApp());
 }

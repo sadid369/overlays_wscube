@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -164,6 +165,72 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
                 child: Text('General  Dialogs')),
+            ElevatedButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      behavior: SnackBarBehavior.floating,
+                      backgroundColor: Colors.green,
+                      margin: const EdgeInsets.all(11),
+                      padding: EdgeInsets.all(11),
+                      content: const Text(
+                        'You Are Back Online',
+                      ),
+                      action: SnackBarAction(
+                        label: 'Dismiss',
+                        textColor: Colors.white,
+                        onPressed: () {},
+                      ),
+                      showCloseIcon: true,
+                      closeIconColor: Colors.white,
+                    ),
+                  );
+                },
+                child: const Text('Show Snackbar')),
+            ElevatedButton(
+                onPressed: () {
+                  Fluttertoast.showToast(msg: 'Hello i am a tost');
+                },
+                child: const Text('Flutter Toast')),
+            ElevatedButton(
+                onPressed: () async {
+                  DateTime? date = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2000, 8, 29),
+                    lastDate: DateTime.now(),
+                  );
+                  if (date != null) {
+                    print(
+                        "Selected Date : ${date.day}/${date.month}/${date.year}");
+                  }
+                },
+                child: const Text('Show Date Picker')),
+            ElevatedButton(
+                onPressed: () async {
+                  DateTimeRange? date = await showDateRangePicker(
+                      context: context,
+                      firstDate: DateTime.now(),
+                      lastDate: DateTime(2023, 12, 31));
+                  if (date != null) {
+                    print(
+                        "Selected Date : from ${date.start.day}/${date.start.month}/${date.start.year} to ${date.end.day}/${date.end.month}/${date.end.year}");
+                  }
+                },
+                child: const Text('Show Range Date Picker')),
+            ElevatedButton(
+                onPressed: () async {
+                  TimeOfDay? date = await showTimePicker(
+                    context: context,
+                    // initialTime: TimeOfDay.now(),
+                    initialTime: TimeOfDay(minute: 10, hour: 10),
+                  );
+
+                  if (date != null) {
+                    print("Selected Time : ${date.hour}:${date.minute}");
+                  }
+                },
+                child: const Text('Show Time Picker')),
           ],
         ),
       ),
