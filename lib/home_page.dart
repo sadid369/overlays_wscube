@@ -14,10 +14,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Overlays'),
-        ),
-        body: Center(
+      appBar: AppBar(
+        title: Text('Overlays'),
+      ),
+      body: Center(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               ElevatedButton(
@@ -303,27 +304,29 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        floatingActionButton: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            FloatingActionButton(
-              onPressed: () {},
-              child: Icon(Icons.add),
-            ),
-            FloatingActionButton.small(
-              onPressed: () {},
-              child: Icon(Icons.add),
-            ),
-            FloatingActionButton.large(
-              onPressed: () {},
-              child: Icon(Icons.add),
-            ),
-            FloatingActionButton.extended(
-              onPressed: () {},
-              label: Text('Add'),
-              icon: Icon(Icons.add),
-            ),
-          ],
-        ));
+      ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () {},
+            child: Icon(Icons.add),
+          ),
+          FloatingActionButton.small(
+            onPressed: () {},
+            child: Icon(Icons.add),
+          ),
+          FloatingActionButton.large(
+            onPressed: () {},
+            child: Icon(Icons.add),
+          ),
+          FloatingActionButton.extended(
+            onPressed: () {},
+            label: Text('Add'),
+            icon: Icon(Icons.add),
+          ),
+        ],
+      ),
+    );
   }
 }

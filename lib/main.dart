@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:overlays_wscube/home_page.dart';
+import 'package:overlays_wscube/radio_button_page.dart';
 
 // GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const RadioButtonPage(),
     );
   }
 }
